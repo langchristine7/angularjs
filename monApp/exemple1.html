@@ -1,0 +1,37 @@
+<!doctype html>
+
+<html ng-app="exemple1App">
+<head>
+  <meta charset="utf-8">
+  <title>Exemple 1</title>
+</head>
+
+<body>
+  <div ng-controller="mainCtrl">
+{{obj.getOeuvres()}}
+  </div>
+
+<script src="js/lib/angular.min.js"></script>
+<script>
+
+  var app = angular.module('exemple1App', []);
+  app.controller('mainCtrl', ['$scope', function($scope){
+  $scope.obj = {
+    nom:'Dumas',
+    prenom : 'Alexandre',
+    oeuvres: [
+      'Les trois mousquetaires',
+      'La reine Margot',
+      'Le ompte de Monte Cristo'
+    ],
+    naissance: 1802,
+    getOeuvres: function (){
+      return this.oeuvres;
+    }
+  }
+  console.log($scope.obj);
+}]);
+
+</script>
+</body>
+</html>

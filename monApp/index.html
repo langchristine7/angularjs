@@ -1,0 +1,126 @@
+<!doctype html>
+
+<html ng-app="testApp">
+<head>
+  <meta charset="utf-8">
+  <title>Mon app angular</title>
+</head>
+
+<body>
+
+<h1>Salut {{ nom | uppercase }}&nbsp;{{prenom}} ! </h1>
+<p>Vous avez {{ age | number:2 }} an(s)</p>
+
+<div ng-bind="nom"></div>
+
+<div ng-controller="testCtrl">
+
+<input type="checkbox" ng-model="ckbTypes">affiche
+  <div ng-show="ckbTypes">
+    <p> longueur String {{s.length}} </p>
+      <p ng-show="b"> Boolean {{b}} </p> <!--affiche que si c'est true-->
+      <p ng-show="b2"> Boolean {{b2}} </p> <!--affiche que si c'est true-->
+      <p> number {{n*2}} </p>
+    <!--  <p> {{ age> 45 ? 't es vieux'   :  '   '}} </p> -->
+    </div>
+<ul>
+
+  <li ng-repeat="color in colors">{{color}}</li>
+</ul>
+    <input ng-model="txtColor" type="text"/>
+    <input type="button" value="Ajouter couleur" ng-click="addColor()">
+
+</div>
+
+  <input ng-model="nom" type="text" placeholder="Taper votre nom">
+  <input ng-model="prenom" type="text" placeholder="Taper votre prenom">
+  <input ng-model="age" type="text" placeholder="Taper votre age">
+
+<div ng-controller="calculCtrl" style="margin-top:30px">
+  {{n}}
+  <div> <input type="text" ng-model="value1">
+     <input type="text" ng-model="value2">
+</div>
+<div>
+  <input type="button" value="+" ng-click="addition()">
+  <input type="button" value="-" ng-click="soustraction()">
+  <input type="button" value="*" ng-click="multiplication()">
+  <input type="button" value="/" ng-click="division()">
+
+</div>
+<div>
+  resultat : {{resultat}}
+</div>
+</div>
+
+
+<div ng-controller="calculCtrlProf" style="margin-top:30px">
+
+  <div> <input type="text" ng-model="txtOperande">
+</div>
+<div>
+  <input type="button" value="+" ng-click="operation('add')">
+  <input type="button" value="-" ng-click="operation('sous')">
+  <input type="button" value="*" ng-click="operation('mult')">
+  <input type="button" value="/" ng-click="operation('div')">
+  <input type="button" value="Valider">
+</div>
+<div>
+  resultat : {{resultat}}
+</div>
+</div>
+
+<script src="js/lib/angular.min.js"></script>
+<script>
+
+  var app = angular.module('testApp', []);
+  app.controller('testCtrl', ['$scope', function($scope){
+  $scope.s = "blobloblo";
+  $scope.b = false;
+  $scope.b2 = true;
+  $scope.n = 666;
+  $scope.colors = ['orange','red','green', 'black', 'white'];
+  $scope.addColor = function (){
+    var newColor = $scope.txtColor;
+    $scope.colors.push(newColor);
+    console.log(txtColor);
+}
+
+//console.log($scope.v);
+}]);
+
+// ajout calcul
+app.controller('calculCtrl', ['$scope', function($scope){
+//$scope.n = 2015;
+$scope.addition = function(){
+  $scope.resultat=parseInt($scope.value1) + parseInt($scope.value2);
+};
+
+$scope.soustraction = function(){
+  $scope.resultat=$scope.value1 - $scope.value2;
+};
+$scope.multiplication = function(){
+  $scope.resultat=$scope.value1 * $scope.value2;
+};
+$scope.division = function(){
+  $scope.resultat=$scope.value1 / $scope.value2;
+};
+
+}]);
+
+app.controller('calculCtrlProf',['$scope', function($scope){
+$scope.operation = function(operation) {
+  $scope.resultat=$scope.txtOperande;
+  $scope.txtOperande = '';
+  $scope.ope = operation;
+  console.log ("operation : " + $scope.ope);
+
+  
+}
+}]);
+
+
+
+</script>
+</body>
+</html>

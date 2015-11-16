@@ -1,0 +1,24 @@
+	COURS ANGULARJS PAR Christophe
+
+16/11/2015
+
+FRONT END vs BACK END
+
+Javascript JAVA
+
+=> FULL STACK
+
+Javascript => biblioth�ques JS : Query
+
+$('h1').css('color', 'red');
+
+Frameworks JS : backbone.js MVC, prototype.js,
+
+ANGULAR MVC
+
+http://jsfiddle.net/
+
+SPA : Single Page Application
+binding
+attention : le  ng-app doit être sur une balise qui englobe l'application,
+la portee des donnees est dans le ng-app
