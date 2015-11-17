@@ -4,12 +4,38 @@
 <head>
   <meta charset="utf-8">
   <title>Exemple 1</title>
+  <style>
+    .focus {
+      color:green;
+    }
+  </style>
 </head>
 
 <body>
+
   <div ng-controller="mainCtrl">
-{{obj.getOeuvres()}}
-  </div>
+<div>
+  <input type="text" ng-model="txtSearch">
+  <select ng-model="selectGenre">
+    <option>aventure</option>
+    <option>historique</option>
+    <option>science-fiction</option>
+</select>
+</div>
+    <ul>
+      <li ng-class="oeuvre.parution > 1840 ? 'focus' : '' " ng-repeat="oeuvre in obj.oeuvres|orderBy:'-parution' | filter:txtSearch | filter:selectGenre" >{{oeuvre.titre}},
+         paru en {{oeuvre.parution}} (genre {{oeuvre.genre}})</li>
+    </ul>
+
+  <table border=1>
+    <tr  ng-repeat="oeuvre in obj.oeuvres|filter:txtSearch | filter:selectGenre" >
+      <td>{{oeuvre.titre}}</td>
+      <td>{{oeuvre.parution}}</td>
+      <td>{{oeuvre.genre}}</td>
+    </tr>
+  </table>
+
+</div>
 
 <script src="js/lib/angular.min.js"></script>
 <script>
@@ -20,10 +46,22 @@
     nom:'Dumas',
     prenom : 'Alexandre',
     oeuvres: [
-      'Les trois mousquetaires',
-      'La reine Margot',
-      'Le ompte de Monte Cristo'
-    ],
+      {
+        titre:'les trois mousquetaires',
+        parution: 1835,
+        genre:'aventure'
+      },
+      {
+        titre:'la reine margot',
+        parution: 1850,
+        genre:'historique'
+      },
+      {
+              titre:'le comte de monte cristo',
+              parution: 1856,
+              genre:'aventure'
+      }
+      ],
     naissance: 1802,
     getOeuvres: function (){
       return this.oeuvres;

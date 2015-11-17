@@ -1,0 +1,39 @@
+<!doctype html>
+
+<html ng-app="ingoApp">
+<head>
+  <meta charset="UTF-8">
+  <title>INGO</title>
+  <link href="css/normalize.css" rel="stylesheet" type="text/css">
+  <link href="css/skeleton.css" rel="stylesheet" type="text/css">
+  <link href="css/styles.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<div id="bg">
+  <div style="height:160px;"></div>
+  <div class="container">
+    <div class="row">
+      <div class="three columns">
+        <ul class="menu">
+          <li><a href="">Home</a></li>
+          <li><a href="">NGO search</a></li>
+          <li><a href="">NGO by country</a></li>
+          <li><a href="">NGO by committee</a></li>
+          <li style="border-bottom:0"><a href="">NGO by Area of competence</a></li>
+        </ul>
+      </div>
+      <div class="nine columns" ng-view></div>
+    </div>
+  </div>
+  </div>
+
+  <script src="js/lib/angular.min.js"></script>
+  <script src="js/lib/angular-route.min.js"></script>
+  <script src="js/app.js"></script>
+
+  <!-- controllers ---->
+  <script src="js/controllers/mainCtrl.js"></script>
+
+</body>
+</html>

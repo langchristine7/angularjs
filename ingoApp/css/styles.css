@@ -1,0 +1,39 @@
+body {
+  font-size:12pt;
+  	background: url('../images/fond_html.jpg') #f6f6f6 repeat-x;
+}
+
+#bg{
+	background: url('../images/bg-header-site.jpg') no-repeat;
+}
+
+a {
+  text-decoration :none;
+  color: #000;
+}
+
+select, input {
+  width:100%;
+}
+
+ul.menu {
+  list-style:none;
+  background: #eee;
+  font-size: .9em;
+  text-transform: uppercase;
+}
+
+ul.menu li {
+  padding:4px;
+  border-bottom: 1px #ccc solid;
+}
+
+ul.menu li a {
+  color: black;
+  font-weight: bold;
+}
+
+.container {
+  background: white;
+  padding: 12px;
+}

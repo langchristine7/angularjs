@@ -1,4 +1,4 @@
-	COURS ANGULARJS PAR Christophe
+﻿	COURS ANGULARJS PAR Christophe
 
 16/11/2015
 
@@ -22,3 +22,18 @@ SPA : Single Page Application
 binding
 attention : le  ng-app doit être sur une balise qui englobe l'application,
 la portee des donnees est dans le ng-app
+
+on est allé sur le site :
+http://coe-ngo.org/
+http://coe-ngo.org/
+
+on fait la liste des ong, et on fait un export en csv
+on va refaire le site en angular, pour le prof...
+on fait ça en cours
+
+convertir un fichier csv (excel en json)
+http://www.convertcsv.com/
+
+syntaxe pour appeler de l'ajax avec l'angular :
+
+https://docs.angularjs.org/api/ng/service/$http
