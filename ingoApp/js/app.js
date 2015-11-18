@@ -1,7 +1,10 @@
 // app.js
 // clang 17-11-2015
 
-var app = angular.module('ingoApp', ['ingoControllers', 'ngRoute']);
+/* routes */
+
+var app = angular.module('ingoApp', ['ingoControllers', 'ngRoute', 'ngSanitize', 'angular.filter']);
+
 app.config (['$routeProvider', function($routeProvider){
   $routeProvider
       .when('/', {
@@ -16,5 +19,17 @@ app.config (['$routeProvider', function($routeProvider){
       })
       .otherwise({
         redirectTo: '/'
-      })
+      });
 }]);
+
+/* filtesr */
+app.filter('website',function(){
+ return function(input){  // closure
+   var result="";
+   if (input.indexOf('http://') == -1)
+      result = 'http://' + input ;
+   else result = input;
+   return '<a href="' + result + '">'+input+'</a>';
+ };
+
+});

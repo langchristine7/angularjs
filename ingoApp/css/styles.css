@@ -1,5 +1,5 @@
 body {
-  font-size:12pt;
+  font-size:10pt;
   	background: url('../images/fond_html.jpg') #f6f6f6 repeat-x;
 }
 
@@ -9,7 +9,6 @@ body {
 
 a {
   text-decoration :none;
-  color: #000;
 }
 
 select, input {
@@ -19,7 +18,7 @@ select, input {
 ul.menu {
   list-style:none;
   background: #eee;
-  font-size: .9em;
+  font-size: .8em;
   text-transform: uppercase;
 }
 
@@ -36,4 +35,16 @@ ul.menu li a {
 .container {
   background: white;
   padding: 12px;
+}
+
+#ingoList .row{
+  border-bottom: 1px #ccc solid;
+}
+
+.numero {
+  border-radius:40px;
+  background: orange;
+  color: white;
+  padding:2px;
+  font-size:.7em;
 }

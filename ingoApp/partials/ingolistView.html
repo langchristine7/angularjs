@@ -1,39 +1,63 @@
+<!--
+<div id="nbIngos">{{(ingos | filter:txtSearch | filter:selectCommittee).length }} Ingos</div>
+-->
+
+<div id="nbIngos">{{ingosFiltered.length}} / {{ingos.length}} Ingos</div>
+
+<!-- FILTERS -->
 <div class="row">
   <div class="four columns">
     <select>
-      <option>-- Select an area of competence -- </option>
+      <option value="">-- Select an area of competence -- </option>
     </select>
-    </div>
+  </div>
   <div class="four columns">
-      <select>
-      <option>-- Select a commitee -- </option>
-    </select>
-    </div>
+      <select ng-model="selectCommittee">
+        <option value="">-- Select a committee -- </option>
+        <option ng-repeat="committee in committees">{{committee}}</option>
+      </select>
+  </div>
     <div class="four columns">
       <select>
-      <option>-- Select a country -- </option>
+      <option value="">-- Select a country -- </option>
     </select>
   </div>
 </div>
 <div class="row">
   <div class="eight columns">
-  <input type="text"/>
-</div>
+  <input type="text" ng-model="txtSearch"/>
+  </div>
 </div>
 
 <!-- ingo list -->
 
-<div class="row" ng-repeat="ingo in ingos">
-  <div class="three columns">
-  {{ ingo["Name (english)"] }}
-  </div>
-  <div class="three columns">
+<!-- INGO LIST -->
+<div id="ingoList">
+  <!--
+  <div class="row" ng-repeat="ingo in ingos | filter:txtSearch | filter:selectCommittee">
+-->
 
-  </div>
-  <div class="three columns">
+  <div class="row" ng-repeat="ingo in ingosFiltered = (ingos | filter:txtSearch | filter:selectCommittee)">
+<!--
+  <div class="row" ng-repeat="ingo in ingosFiltered = (ingos | filterBy:['Website']:txtSearch | filter:selectCommittee)">
+  -->
 
-  </div>
-  <div class="three columns">
-  
+    <div class="three columns">
+      <span class="numero">{{$index +1}}</span>
+      {{ ingo["Name (english)"] }}
+    </div>
+    <div class="three columns">
+      {{ ingo["Name (french)"] }}
+    </div>
+    <div class="three columns">
+      <a href="https://www.google.fr/maps/place/{{ ingo.Street }} {{ ingo.Postcode }} {{ ingo.Town }}, {{ ingo.Country | uppercase }}">
+      {{ ingo.Street }} {{ ingo.Postcode }} {{ ingo.Town }}, {{ ingo.Country | uppercase }}</a>
+    </div>
+    <div class="three columns">
+      {{ ingo.Tel }}<br/>
+      {{ ingo.Fax }}<br/>
+      <span ng-bind-html="ingo.Website | website"></span>
+      <a href="mailto://{{ingo.Email}}">{{ ingo.Email }}</a>
+    </div>
   </div>
 </div>

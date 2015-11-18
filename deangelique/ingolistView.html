@@ -1,0 +1,71 @@
+<!--<div id="nbIngos">{{(ingos | filterBy: ['txtSearch', selectCompetence, selectCommittee, selectCountry']).length }} Ingos</div>-->
+<div id="nbIngos">{{ ingosFiltered.length }} / {{ ingos.length }} Ingos</div>
+
+<!-- filtre -->
+<div class="row">
+  <div class="four columns">
+    <select ng-model="selectCompetence">
+      <option value="">-- Select an area of competence --</option>
+      <option ng-repeat="committee in committees">{{committee}}</option>
+    </select>
+  </div>
+  <div class="four columns">
+    <select ng-model="selectCommittee">
+      <option value="">-- Select a committee --</option>
+      <option ng-repeat="committee in committees">{{committee}}</option>
+    </select>
+  </div>
+  <div class="four columns">
+    <select ng-model="selectCountry">
+      <option value="">-- Select a country --</option>
+      <option ng-repeat="committee in committees">{{committee}}</option>
+    </select>
+  </div>
+</div>
+
+<div class="row">
+  <div class="eight columns">
+    <input type="text" placeholder="Name/Acronym/Email" ng-model="txtSearch.Email">
+   <!--  | txtSearch['Name (english)'] | txtSearch['Acronym (english)'] | txtSearch['Name (french)'] | txtSearch['Acronym (french)']-->
+  </div>
+</div>
+
+<!-- resultat -->
+<div class="row">
+  <div class="three columns">
+    Name
+  </div>
+  <div class="three columns">
+    Name in French
+  </div>
+  <div class="three columns">
+    Adress
+  </div>
+  <div class="three columns">
+    Contact
+  </div>
+</div>
+<div id="ingoList">
+  <!-- <div class="row" ng-repeat="ingo in ingosFiltered = (ingos | filterBy: ['Name (english)'} : txtSearch | filterBy: ['Name (english)'} : selectCompetence | filterBy: ['Name (english)'} : selectCommittee | filterBy: ['Country'} : selectCountry'])"> -->
+    <div class="row" ng-repeat="ingo in ingosFiltered = (ingos | filterBy:['Email']:txtSearch.Email)">
+    <div class="three columns">
+      <span class="numero">{{$index +1}}</span>
+      {{ ingo["Name (english)"] }}<br/>
+      {{ ingo["Acronym (english)"] }}
+    </div>
+    <div class="three columns">
+      {{ ingo["Name (french)"] }}<br/>
+      {{ ingo["Acronym (french)"] }}
+    </div>
+    <div class="three columns">
+      {{ ingo.Street }}<br/>
+      {{ ingo.PostCode }} {{ ingo.Town }} ({{ ingo.Country | uppercase }})
+    </div>
+
+  <div class="three columns">
+    {{ ingo.Tel }}<br/>
+    {{ ingo.Fax }}<br/>
+    <span ng-bind-html="ingo.Website | website"></span>
+    <a href="mailto://{{ingo.Email}}">{{ ingo.Email }}</a>
+  </div>
+</div>

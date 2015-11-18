@@ -1,0 +1,52 @@
+<!-- FILTERS -->
+<div class="row">
+  <div class="four columns">
+    <select>
+      <option>-- Select an area of competence --</option>
+    </select>
+  </div>
+  <div class="four columns">
+    <select>
+      <option>-- Select a committee --</option>
+    </select>
+  </div>
+  <div class="four columns">
+    <select>
+      <option>-- Select a country --</option>
+    </select>
+  </div>
+</div>
+
+<div class="row">
+  <div class="eight columns">
+      <input type="text" />
+  </div>
+</div>
+
+
+<!-- INGO LIST -->
+<div class="row" ng-repeat="ingo in ingos">
+  
+  <div class="three columns">
+    {{ ingo["Name (english)"] }}
+  </div>
+  <div class="three columns">
+    {{ ingo["Name (french)"] }}
+  </div>
+  <div class="three columns">
+    {{ ingo.Street }} {{ ingo.Postcode }} {{ ingo.Town }}, {{ ingo.Country | uppercase }} 
+  </div>
+  <div class="three columns">
+    {{ ingo.Tel }}<br/>
+    {{ ingo.Fax }}<br/>
+    {{ ingo.Website }}<br/>
+    {{ ingo.Email }}
+    
+  </div>
+
+</div>
+
+
+
+
+

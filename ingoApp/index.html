@@ -3,6 +3,7 @@
 <html ng-app="ingoApp">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>INGO</title>
   <link href="css/normalize.css" rel="stylesheet" type="text/css">
   <link href="css/skeleton.css" rel="stylesheet" type="text/css">
@@ -14,22 +15,29 @@
   <div style="height:160px;"></div>
   <div class="container">
     <div class="row">
-      <div class="three columns">
+      <div class="two columns">
         <ul class="menu">
-          <li><a href="">Home</a></li>
-          <li><a href="">NGO search</a></li>
-          <li><a href="">NGO by country</a></li>
-          <li><a href="">NGO by committee</a></li>
+          <li><a href="#/">Home</a></li>
+                  <!-- # correspond au point d'entree de l'appli en local -->
+          <li><a href="#/ingos">NGO search</a></li>
+          <li><a href="#/">NGO by country</a></li>
+          <li><a href="#/">NGO by committee</a></li>
           <li style="border-bottom:0"><a href="">NGO by Area of competence</a></li>
         </ul>
       </div>
-      <div class="nine columns" ng-view></div>
+      <div class="ten columns" ng-view></div>
     </div>
   </div>
-  </div>
+</div>
 
   <script src="js/lib/angular.min.js"></script>
   <script src="js/lib/angular-route.min.js"></script>
+  <script src="js/lib/angular-sanitize.min.js"></script>
+  <!-- angular-filter sur https://github.com/a8m/angular-filter -->
+  <!-- etend les possibilites de filtre dans les vues -->
+  <script src="js/ext/angular-filter-master/dist/angular-filter.min.js"></script>
+  <script src="js/ext/underscore-min.js"></script>
+
   <script src="js/app.js"></script>
 
   <!-- controllers ---->

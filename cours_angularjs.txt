@@ -37,3 +37,9 @@ http://www.convertcsv.com/
 syntaxe pour appeler de l'ajax avec l'angular :
 
 https://docs.angularjs.org/api/ng/service/$http
+
+pour ajouter l'interprétation du html, on a ajouté :
+  <script src="js/lib/angular-sanitize.min.js"></script>
+  dans les dépendances, plus le déclarer dans app.js:
+
+  var app = angular.module('ingoApp', ['ingoControllers', 'ngRoute', 'ngSanitize']);
