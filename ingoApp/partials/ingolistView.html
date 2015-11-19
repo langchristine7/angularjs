@@ -1,14 +1,10 @@
-<!--
-<div id="nbIngos">{{(ingos | filter:txtSearch | filter:selectCommittee).length }} Ingos</div>
--->
-
 <div id="nbIngos"> {{ingosFiltered.length}} / {{ingos.length}} Ingos</div>
 
 <!-- FILTERS -->
 <div class="row">
   <div class="four columns">
     <select>
-      <option value="">-- Select an area of competence -- </option>
+      <option value=""> -- Select an area of competence -- </option>
     </select>
   </div>
   <div class="four columns">
@@ -20,6 +16,7 @@
     <div class="four columns">
       <select>
       <option value="">-- Select a country -- </option>
+      <option ng-repeat="geoRep in geoReps">{{geoRep}}</option>
     </select>
   </div>
 </div>
@@ -39,7 +36,7 @@
 <!--
   <div class="row" ng-repeat="ingo in ingosFiltered = (ingos | filter:txtSearch | filter:selectCommittee)">
 -->
-  <div class="row" ng-repeat="ingo in ingosFiltered = (ingos | filterBy:['nameEn','acronymEn', 'nameFr', 'acronymFr', 'email']:txtSearch | filter:selectCommittee)">
+  <div class="row" ng-repeat="ingo in ingosFiltered = (ingos | filterBy:['nameEn','acronymEn', 'nameFr', 'acronymFr', 'email']:txtSearch)">
 
     <div class="three columns">
       <span class="numero">{{$index +1}}</span>
