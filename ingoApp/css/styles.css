@@ -66,6 +66,13 @@ h1{
   font-size:2em;
 }
 
+h2{
+  font-size:1em;
+  margin:5px;
+  padding:5px;
+  border: 1px #ccc solid;
+}
+
 input.ng-invalid{
   background-color: red;
 }

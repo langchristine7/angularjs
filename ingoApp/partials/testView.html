@@ -1,0 +1,20 @@
+<h1>test</h1>
+
+<!--<div ng-repeat="joueur in joueurs">
+  <h3>{{ joueur.name }}</h3>
+  <p>Ce joueur porte le numéro {{ joueur.numero }}</p>
+</div>-->
+
+<div ng-repeat="joueur in joueurs">
+  <!-- attention à la caste : dans les balise pas de majuscules (elle devient minuscule avec un tiret avant ! -->
+  <div my-dir player="joueur">Directive perso</div><br/>
+</div>
+
+<!--<div ng-repeat="joueur in joueurs">-->
+  <!-- attention à la caste : dans les balise pas de majuscules (elle devient minuscule avec un tiret avant ! -->
+  <!--<div my-dir player="">Directive perso</div><br/>
+</div>-->
+
+
+
+<img ng-src="{{ source }}" width=600px/>

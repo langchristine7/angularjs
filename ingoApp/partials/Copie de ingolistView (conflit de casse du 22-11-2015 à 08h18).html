@@ -1,0 +1,63 @@
+<!-- <div id="nbIngos">{{ (ingos | filter:txtSearch | filter:selectCommittee).length }} Ingos</div> -->
+<div id="nbIngos">{{ ingosFiltered.length }} / {{ ingos.length }} Ingos</div>
+
+<!-- FILTERS -->
+<div class="row">
+  <div class="four columns">
+    <select ng-model="selectAoc">
+      <option value="">-- Select an area of competence --</option>
+      <option value="{{aoc.val}}" class="{{aoc.class}}" ng-repeat="aoc in aocs">{{ aoc.title }}</option>
+    </select>
+  </div>
+  <div class="four columns">
+    <select ng-model="selectCommittee.committees">
+      <option value="">-- Select a committee --</option>
+      <option ng-repeat="committee in committees">{{ committee }}</option>
+    </select>
+  </div>
+  <div class="four columns">
+    <select ng-model="selectGeorep.geoReps">
+      <option value="">-- Select a country --</option>
+      <option ng-repeat="georep in georeps">{{ georep }}</option>
+    </select>
+  </div>
+</div>
+
+<div class="row">
+  <div class="eight columns">
+      <input type="text" ng-model="txtSearch" />
+  </div>
+</div>
+
+
+<!-- INGO LIST -->
+
+<div id="ingoList">
+  
+  <!-- <div class="row" ng-repeat="ingo in ingosFiltered = (ingos | filter:txtSearch | filter:selectCommittee:Committees)"> -->
+    
+  <div class="row" ng-repeat="ingo in ingosFiltered = (ingos | filterBy:['nameEn', 'acronymEn', 'nameFr', 'acronymFr', 'email']:txtSearch | filter:selectAoc | filter:selectCommittee | filter:selectGeorep)">
+     
+    <div class="three columns">
+      <span class="numero">{{ $index + 1 }}</span>
+      <a href="#/ingo/{{ingo.id}}">{{ ingo.nameEn }}</a> ({{ ingo.acronymEn }})
+    </div>
+    <div class="three columns">
+      {{ ingo.nameFr }} ({{ ingo.acronymFr }})
+    </div>
+    <div class="three columns">
+      {{ ingo.street }} {{ ingo.postcode }} {{ ingo.town }}, {{ ingo.country | uppercase }} 
+    </div>
+    <div class="three columns">
+      {{ ingo.tel }}<br/>
+      {{ ingo.fax }}<br/>
+      <span ng-bind-html="ingo.website | website"></span><br />
+      <span ng-bind-html="ingo.email | email"></span><br />
+    </div>
+  </div>
+  
+<div>
+
+
+
+
