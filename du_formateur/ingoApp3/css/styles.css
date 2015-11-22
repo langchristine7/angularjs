@@ -1,0 +1,63 @@
+body {
+    font-size: 10pt;
+    background: url('../images/fond_html.jpg') #f6f6f6 repeat-x;
+}
+
+h1 {
+    font-size: 2em;
+}
+
+#bg{
+    background: url('../images/bg-header-site.jpg') no-repeat;  
+}
+
+a {
+    text-decoration: none;
+    
+}
+
+select, input {
+    width: 100%;
+}
+
+ul.menu {
+    list-style: none;
+    background: #eee;
+    font-size: .8em;
+    text-transform: uppercase;
+}
+
+ul.menu li {
+    padding: 4px;
+    border-bottom: 1px #ccc solid;
+}
+
+ul.menu li a {
+    color: black;
+    font-weight: bold;
+}
+
+.container {
+    background: white;
+    padding: 12px;
+}
+
+#ingoList .row {
+    border-bottom: 1px #ccc solid;
+}
+
+.numero {
+    border-radius: 40px;
+    background: orange;
+    color: white;
+    padding:2px;
+    font-size: .7em;
+}
+
+
+
+
+
+
+
+

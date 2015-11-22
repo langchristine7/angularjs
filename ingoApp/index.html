@@ -1,6 +1,6 @@
 <!doctype html>
-
 <html ng-app="ingoApp">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,40 +11,59 @@
 </head>
 
 <body>
-<div id="bg">
-  <div style="height:160px;"></div>
-  <div class="container">
-    <div class="row">
-      <div class="two columns">
-        <ul class="menu">
-          <li><a href="#/">Home</a></li>
-          <!-- # correspond au point d'entree de l'appli en local -->
-          <li><a href="#/ingos">NGO search</a></li>
-          <li><a href="#/">NGO by country</a></li>
-          <li><a href="#/">NGO by committee</a></li>
-          <li style="border-bottom:0"><a href="">NGO by Area of competence</a></li>
-        </ul>
+  
+  <div id="bg">
+    
+    <div style="height:160px"></div>
+  
+    <div class="container">
+  
+      <div class="row">
+  
+        <div class="two columns">
+      
+          <ul class="menu">
+            <li><a href="#/">Home</a></li>
+            <li><a href="#/ingos">NGO search</a></li>
+            <li><a href="">NGO by country</a></li>
+            <li><a href="">NGO by committee</a></li>
+            <li><a href="">NGO by Area of competence</a></li>
+            <li style="border-bottom:0"><a href="#/sign-in">Sign In</a></li>
+          </ul>
+      
+        </div>
+    
+        <div class="ten columns" ng-view> 
+        </div>
+    
       </div>
-      <div class="ten columns" ng-view></div>
-    </div>
-  </div>
-</div>
+   
+    </div> <!-- container -->
+  </div> <!-- bg -->
+  
 
   <script src="js/lib/angular.min.js"></script>
   <script src="js/lib/angular-route.min.js"></script>
   <script src="js/lib/angular-sanitize.min.js"></script>
-  <!-- angular-filter sur https : //github.com/a8m/angular-filter -->
-  <!-- etend les possibilites de filtre dans les vues -->
-  <script src="js/ext/angular-filter-master/dist/angular-filter.min.js"></script>
-  <script src="js/ext/underscore-min.js"></script>
-
+  
+  <!-- angular.filter 
+    https://github.com/a8m/angular-filter
+    Etend les possiblités de filtre dans les vues
+  -->
+  <script src="js/angular-filter/dist/angular-filter.min.js"></script>
+    
+  <script src="js/underscore-min.js"></script>
+  
+  
   <script src="js/app.js"></script>
-
-  <!-- controllers ---->
+  
+  <!-- Controllers -->
   <script src="js/controllers/mainCtrl.js"></script>
-
-  <!-- services -->
+  
+  <!-- Services -->
   <script src="js/services/ingo.js"></script>
-
+  
+  
+  
 </body>
 </html>

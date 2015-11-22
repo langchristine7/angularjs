@@ -1,0 +1,62 @@
+<div id="nbIngos"> {{ingosFiltered.length}} / {{ingos.length}} Ingos</div>
+
+<!-- FILTERS -->
+<div class="row">
+  <div class="four columns">
+    <select>
+      <option value=""> -- Select an area of competence -- </option>
+      <option ng-repeat="aoc in aocs" value="{{aoc.val}}"
+                    class={{aoc.class}}>{{aoc.title}}</option>
+
+    </select>
+  </div>
+  <div class="four columns">
+      <select ng-model="selectCommittee">
+        <option value="">-- Select a committee -- </option>
+        <option ng-repeat="committee in committees">{{committee}}</option>
+      </select>
+  </div>
+    <div class="four columns">
+      <select>
+      <option value="">-- Select a country -- </option>
+      <option ng-repeat="geoRep in geoReps">{{geoRep}}</option>
+    </select>
+  </div>
+</div>
+<div class="row">
+  <div class="eight columns">
+  <input type="text" ng-model="txtSearch"/>
+  </div>
+</div>
+
+<!-- ingo list -->
+
+<!-- INGO LIST -->
+<div id="ingoList">
+  <!--
+  <div class="row" ng-repeat="ingo in ingos | filter:txtSearch | filter:selectCommittee">
+-->
+<!--
+  <div class="row" ng-repeat="ingo in ingosFiltered = (ingos | filter:txtSearch | filter:selectCommittee)">
+-->
+  <div class="row" ng-repeat="ingo in ingosFiltered = (ingos | filterBy:['nameEn','acronymEn', 'nameFr', 'acronymFr', 'email']:txtSearch)">
+
+    <div class="three columns">
+      <span class="numero">{{$index +1}}</span>
+        <a href="#/ingos/{{ ingo.id }}">{{ ingo.nameEn }}</a>({{ ingo.acronymEn }})
+    </div>
+    <div class="three columns">
+       <a href="#/ingos/{{ ingo.id }}">{{ ingo.nameFr }}</a>({{ ingo.acronymFr }})
+    </div>
+    <div class="three columns">
+      <a href="https://www.google.fr/maps/place/{{ ingo.street }} {{ ingo.postcode }} {{ ingo.town }}, {{ ingo.country | uppercase }}">
+      {{ ingo.street }} {{ ingo.postcode }} {{ ingo.town }}, {{ ingo.country | uppercase }}</a>
+    </div>
+    <div class="three columns">
+      {{ ingo.tel }}<br/>
+      {{ ingo.fax }}<br/>
+      <span ng-bind-html="ingo.website | website"></span>
+      <a href="mailto://{{ingo.email}}">{{ ingo.email }}</a>
+    </div>
+  </div>
+</div>

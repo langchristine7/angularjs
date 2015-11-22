@@ -1,40 +1,45 @@
-body {
-  font-size:10pt;
-  	background: url('../images/fond_html.jpg') #f6f6f6 repeat-x;
+body{
+  font-size: 10pt;
+  background:url('../images/fond_html.jpg') #f6f6f6 repeat-x;
 }
 
-#bg{
-	background: url('../images/bg-header-site.jpg') no-repeat;
-}
-
-a {
-  text-decoration :none;
-}
-
-select, input {
-  width:100%;
-}
-
-ul.menu {
-  list-style:none;
+ul.menu{
+  list-style: none;
   background: #eee;
-  font-size: .8em;
+  font-size: 0.8em;
   text-transform: uppercase;
 }
 
-ul.menu li {
+ul.menu li{
   padding:4px;
   border-bottom: 1px #ccc solid;
+  margin:0px;
 }
 
-ul.menu li a {
-  color: black;
+ul.menu li a{
   font-weight: bold;
+  color: #000;
 }
 
-.container {
-  background: white;
+a{
+  text-decoration:none;
+}
+
+select{
+  width: 100%;
+}
+
+#bg{
+  background:url('../images/bg-header-site.jpg') no-repeat;
+}
+
+.container{
+  background:#fff;
   padding: 12px;
+}
+
+select, input{
+  width:100%;
 }
 
 #ingoList .row{
@@ -47,4 +52,20 @@ ul.menu li a {
   color: white;
   padding:2px;
   font-size:.7em;
+}
+
+.level1{
+  color:red;
+}
+
+.level2{
+  color:blue;
+}
+
+h1{
+  font-size:2em;
+}
+
+input.ng-invalid{
+  background-color: red;
 }
